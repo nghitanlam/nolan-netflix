@@ -1,7 +1,18 @@
 import express from "express";
 
-const app = express()
+import { ENV_VARS } from "./config/envVars.js";
 
-app.listen(5000, () => {
-    console.log(`Server started at http://localhost:5000`);
-})
+import authRoutes from "./routes/auth.route.js";
+import { connectDB } from "./config/db.js";
+
+const app = express();
+
+app.use(express.json());
+
+app.use("/api/v1/auth", authRoutes);
+
+app.listen(ENV_VARS.PORT, () => {
+  connectDB();
+  console.log(`✅ Server started at http://localhost:${ENV_VARS.PORT}`);
+});
+
