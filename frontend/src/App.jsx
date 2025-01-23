@@ -10,6 +10,7 @@ import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import Footer from "./components/Footer";
 import WatchPage from "./pages/WatchPage";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   const { user, isCheckingAuth, authCheck } = useAuthStore();
@@ -43,6 +44,10 @@ function App() {
         <Route
           path="/watch/:id"
           element={user ? <WatchPage /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/search"
+          element={user ? <SearchPage /> : <Navigate to={"/"} />}
         />
       </Routes>
       <Footer />
