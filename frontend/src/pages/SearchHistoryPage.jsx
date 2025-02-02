@@ -75,8 +75,6 @@ const SearchHistoryPage = () => {
     );
   }
 
-  console.log("search", searchHistory);
-
   return (
     <div className="bg-black text-white min-h-screen">
       <Navbar />
@@ -106,8 +104,8 @@ const SearchHistoryPage = () => {
                   entry.searchType === "movie"
                     ? "bg-red-600"
                     : entry.searchType === "tv"
-                      ? "bg-blue-600"
-                      : "bg-green-600"
+                    ? "bg-blue-600"
+                    : "bg-green-600"
                 }`}
               >
                 {entry.searchType[0].toUpperCase() + entry.searchType.slice(1)}
